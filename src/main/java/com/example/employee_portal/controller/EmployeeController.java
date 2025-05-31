@@ -19,9 +19,9 @@ public class EmployeeController {
     // Example endpoint
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
-        // return employeeService.getAllEmployees();
+        return employeeService.getAllEmployees();
         //return List.of("John Doe", "Jane Smith", "Alice Johnson");
-        return getEmployees();
+        //return getEmployees();
     }
 
     private static List<Employee> getEmployees() {
@@ -37,18 +37,18 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
 
     public Employee getEmployeeById(@PathVariable Long id) {
-        // return employeeService.getEmployeeById(id);
-        return getEmployees().stream().
-                filter(employee -> employee.getId().equals(id)).
-                findFirst().
-                orElse(null);
+        return employeeService.getEmployeeById(id);
+        //return getEmployees().stream().
+        //  filter(employee -> employee.getId().equals(id)).
+        //    findFirst().
+        //      orElse(null);
     }
 
     // endpoint to count employees
     @GetMapping("/employees/count")
     public int countEmployees() {
-        // return employeeService.countEmployees();
-        return getEmployees().size();
+        return employeeService.countEmployees();
+        //return getEmployees().size();
     }
 
     // endpoint to get employee names
@@ -75,11 +75,6 @@ public class EmployeeController {
     public void addEmployee(@RequestBody Employee employee) {
         employeeService.addEmployee(employee);
 
-    }
-
-    @DeleteMapping("/employees/{id}")
-    public void deleteEmployee(@PathVariable Long id) {
-        employeeService.deleteEmployee(id);
     }
 }
 

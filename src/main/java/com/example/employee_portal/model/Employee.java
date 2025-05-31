@@ -10,6 +10,12 @@ public class Employee {
     private final String name;
     private final String position;
 
+    public Employee() {
+        this.id = null; // Default constructor for JPA
+        this.name = null;
+        this.position = null;
+    }
+
     public Employee(Long id, String name, String position) {
         this.id = id;
         this.name = name;
